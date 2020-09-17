@@ -28,10 +28,8 @@ export class HomeComponent implements OnInit {
       .set('typeId', typeId);
     this.http.post(url, body).subscribe(res => {
       this.typeId = res[0];
-      console.log(this.typeId);
     });
   }
-
   // 在網頁加入購物車
   changeQuantity4select(userEmail, productName, quantity): void {
     const url = 'http://10.1.41.66:8080/changeQuantity4select';

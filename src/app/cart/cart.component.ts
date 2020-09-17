@@ -2,6 +2,7 @@ import { LoginService } from './../login.service';
 import { Desserts } from './../../../desserts';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -17,10 +18,15 @@ export class CartComponent implements OnInit {
   subtotal = 0; // 小計
   fee = 0;
   alltotal = 0; // 總計
-  constructor(private http: HttpClient, private loginService: LoginService) { }
+  constructor(private http: HttpClient, private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
-    this.checkCart();
+    if (this.loginService.getStatus() === true) {
+      this.checkCart();
+    } else {
+      alert('尚未登入!');
+      this.router.navigate(['/login']);
+    }
   }
   // 看購物車 + 計算total(price * quantity)
   checkCart(): void {

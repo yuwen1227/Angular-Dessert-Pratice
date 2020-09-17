@@ -1,3 +1,4 @@
+import { LoginService } from './../login.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Desserts } from './../../../desserts';
 import { Component, OnInit, Input } from '@angular/core';
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./dessertinfo.component.css']
 })
 export class DessertinfoComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private loginService: LoginService) { }
   typeId: string;
   desserts: Desserts[];
   numberforall: number;
@@ -65,17 +66,20 @@ export class DessertinfoComponent implements OnInit {
 
   // 網站放到購物車
   changeQuantity4select(productName: string): void {
-    const url = 'http://10.1.41.66:8080/changeQuantity4select';
-    this.productname = productName;
-    const body = new HttpParams()
-      .set('userEmail', 'admin')
-      .set('productName', this.productname)
-      .set('quantity', '1');
-    console.log(this.productname);
-    this.http.post(url, body).subscribe(res => {
-      console.log(res);
-      alert(`${this.productname}\n成功加入購物車`);
-    });
+    if (this.loginService.getStatus() === true) {
+      const url = '/api/changeQuantity4select';
+      this.productname = productName;
+      const body = new HttpParams()
+        .set('userEmail', 'admin')
+        .set('productName', this.productname)
+        .set('quantity', '1');
+      console.log(this.productname);
+      this.http.post(url, body).subscribe(res => {
+        console.log(res);
+        alert(`${this.productname}\n成功加入購物車`);
+      });
+    }else{
+      alert('尚未登入!\n無法加入購物車');
+    }
   }
-
 }

@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
       } else {
         alert('登入成功!');
         this.router.navigate(['/home']);
+        this.loginService.setStatus(true);
       }
     });
   }

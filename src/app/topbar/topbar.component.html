@@ -18,7 +18,10 @@
           <a class="nav-link" routerLink='/dessert' style="color: #8DA291; font-size: 16px;">甜點</a>
         </li>
         <li class="nav-item ml-sm-4 mr-sm-4">
-          <a class="nav-link" routerLink='/login' style="color: #8DA291; font-size: 16px;">登入</a>
+          <a class="nav-link" id="login" routerLink='/login' style="color: #8DA291; font-size: 16px;" (click)="changebtn()">登入</a>
+        </li>
+        <li class="nav-item ml-sm-4 mr-sm-4">
+          <a class="nav-link" id="logout" routerLink='/login' style="color: #8DA291; font-size: 16px; display: none;" (click)="Logout()">登出</a>
         </li>
       </ul>
     </div>

@@ -1,3 +1,4 @@
+import { LoginService } from './../login.service';
 import { Desserts } from './../../../desserts';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -15,15 +16,13 @@ export class DesserthomeComponent implements OnInit {
   productname: string;
   quantity: string;
   token: string;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.queryByTypeId('1');
-
-
   }
   queryByTypeId(typeId: string): void {
-    const url = 'http://10.1.41.66:8080/queryByTypeId';
+    const url = '/api/queryByTypeId';
     const body = new HttpParams()
       .set('typeId', typeId);
     this.typeId = typeId;
@@ -37,7 +36,7 @@ export class DesserthomeComponent implements OnInit {
   // Return 所有類別細節(名稱、狀態、數量、id)
   queryTypeAndNums(Id: string): void {
 
-    const url = 'http://10.1.41.66:8080/queryTypeAndNums';
+    const url = '/api/queryTypeAndNums';
     this.http.get(url).subscribe(res => {
       console.log(Id);
       if (Id == '1') {
@@ -54,16 +53,20 @@ export class DesserthomeComponent implements OnInit {
   }
   // 網站放到購物車
   changeQuantity4select(productName: string): void {
-    const url = 'http://10.1.41.66:8080/changeQuantity4select';
-    this.productname = productName;
-    const body = new HttpParams()
-      .set('userEmail', 'admin')
-      .set('productName', productName)
-      .set('quantity', '1');
-    console.log(this.productname);
-    this.http.post(url, body).subscribe(res => {
-      console.log(res);
-      alert(`${this.productname}\n成功加入購物車`);
-    });
+    if (this.loginService.getStatus() === true) {
+      const url = '/api/changeQuantity4select';
+      this.productname = productName;
+      const body = new HttpParams()
+        .set('userEmail', 'admin')
+        .set('productName', productName)
+        .set('quantity', '1');
+      console.log(this.productname);
+      this.http.post(url, body).subscribe(res => {
+        console.log(res);
+        alert(`${this.productname}\n成功加入購物車`);
+      });
+    }else{
+      alert('尚未登入!\n無法購物車');
+    }
   }
 }

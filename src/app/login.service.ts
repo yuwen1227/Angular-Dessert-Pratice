@@ -8,6 +8,7 @@ export class LoginService {
   constructor() { }
   private token;
   private email;
+  private status;
   getToken() {
     return this.token;
   }
@@ -19,5 +20,11 @@ export class LoginService {
   }
   setEmail(email: string) {
     this.email = email;
+  }
+  getStatus() {
+    return this.status;
+  }
+  setStatus(status: boolean) {
+    this.status = status;
   }
 }
