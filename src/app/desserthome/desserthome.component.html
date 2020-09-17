@@ -1,0 +1,21 @@
+<div class="container ">
+  <div class="row arr-content3">
+    <div class="col-md-4 mb-4" *ngFor="let dessert of desserts">
+      <div class="card">
+        <div class="card-img" style="background-image: url({{dessert.img}});">
+          <div class="img-mark">
+            <div class="img-mark-text">{{typename}}</div>
+          </div>
+        </div>
+        <div class="row">
+          <span class="card-text">{{dessert.name}}</span>
+          <div class="line-right"></div>
+          <a class="card-price">NT${{dessert.price}}</a>
+        </div>
+        <div class="card-footer card-footer-style">
+          <div class="card-footer-text" (click)='changeQuantity4select(dessert.name)'>加入購物車</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,161 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="deliver-form-bg" style="height: 520px;">
+
+        <div class="row pt-4">
+          <div class="col-1"></div>
+          <div class="col-3">
+            <h2 style="color: #EAF0ED;">發票</h2>
+          </div>
+          <div class="col-3"></div>
+
+          <div class="col-5 mt-2 d-md-none" style="position: absolute; left:200px;">
+            <span class="material-icons" style="position: absolute; color:#EAF0ED; right:164px; top:1px;">
+              check_circle
+            </span>
+            <span class="material-icons" style="position: absolute; color:#EAF0ED; right:80px; top:1px; z-index: 2;">
+              check_circle
+            </span>
+            <div class="step-circle-now" style="left: 186px; top:4px;"></div>
+            <div class="step-line" style="top:12px;"></div>
+            <div class="step-line" style="top:12px; left: 120px;"></div>
+            <div class="step-circle" style="position: absolute; left: 185px; top:3px"></div>
+          </div>
+
+          <div class="col-5 mt-2 d-none d-md-block">
+            <span class="material-icons" style="position: absolute; color:#EAF0ED; right:280px; bottom:16px;">
+              check_circle
+            </span>
+            <span class="material-icons"
+              style="position: absolute; color:#EAF0ED; right:194px; bottom:16px; z-index: 2;">
+              check_circle
+            </span>
+            <div class="step-circle-now" style="left: 186px;"></div>
+            <div class="step-circle"></div>
+            <div class="step-line"></div>
+            <div class="step-circle" style="position: absolute; left: 100px; bottom:18px"></div>
+            <div class="step-line" style="left: 120px;"></div>
+            <div class="step-circle" style="position: absolute; left: 185px; bottom:18px"></div>
+          </div>
+
+        </div>
+
+        <form>
+          <div class="form-row mt-2">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <ul class="nav row justify-content-center">
+                <li class="nav-item col-5" style="padding-right: 0px;">
+                  <a class="list-group-item receipt-box-style list-group-item-action active" id="list-e-receipt-btn"
+                    data-toggle="list" href="#list-e-receipt">電子發票</a>
+                </li>
+                <li class="nav-item col-5" style="padding-left: 0px;">
+                  <a class="list-group-item receipt-box-style list-group-item-action" id="list-m-receipt-btn"
+                    data-toggle="list" href="#list-m-receipt">郵寄發票</a>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-e-receipt" role="tabpanel">
+                  <div class="form-row mt-2">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                      <div class="form-group">
+                        <label for="e-mail" class="deliver-form-text">電子郵件信箱</label>
+                        <input type="email" class="form-control deliver-form-textBox" id="e-mail"
+                          style="color: #8DA291; font-size: 20px;" placeholder="example@email.com">
+                      </div>
+                      <div class="form-group">
+                        <label for="uni-number" class="deliver-form-text">統一編號 (選填)</label>
+                        <input type="text" class="form-control deliver-form-textBox" id="e-mail"
+                          style="color: #8DA291; font-size: 20px;" placeholder="12345678">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="list-m-receipt" role="tabpanel">
+                  <div class="form-row">
+                    <div class="col-1"></div>
+                    <div class="form-group col-5">
+                      <label for="city" class="deliver-form-text">地址</label>
+                      <select id="city" class="form-control deliver-form-textBox"
+                        style="color: #8DA291; font-size: 20px;">
+                        <option selected>高雄市</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-5" style="padding-top: 14px;">
+                      <label for="district"></label>
+                      <select id="city" class="form-control deliver-form-textBox"
+                        style="color: #8DA291; font-size: 20px;">
+                        <option selected>新興區</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col-1"></div>
+                    <div class="form-group col-10">
+                      <label for="address"></label>
+                      <input type="text" class="form-control deliver-form-textBox"
+                        style="color: #8DA291; font-size: 20px;" id="address" placeholder="幸福路520號">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                      <div class="form-group">
+                        <label for="uni-number" class="deliver-form-text">統一編號 (選填)</label>
+                        <input type="text" class="form-control deliver-form-textBox" id="e-mail"
+                          style="color: #8DA291; font-size: 20px;" placeholder="12345678">
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <a routerLink='/checkout' style="text-decoration: none;">
+        <div type="submit" class="btn deliver-form-btn d-none d-md-block " style="margin-top: 0px;">下一步</div>
+        <div type="submit" class="btn deliver-form-btn d-md-none" style="width: 454px; margin-top: 0px;">下一步</div>
+      </a>
+    </div>
+
+    <div class="col-4 d-none d-md-block">
+      <div class="deliver-form-total">訂單摘要</div>
+      <div class="deliver-form-totalBox mb-3">
+        <div class="cart-bill-text ml-4 mt-3" style="color: #8DA291;">小計<span style="padding-left: 200px;">NT$
+            {{subtotal}}</span></div>
+        <div class="cart-bill-text ml-4 mt-2" style="color: #8DA291;">運費<span style="padding-left: 212px;">NT$
+            {{fee}}</span></div>
+        <div class="cart-bill-text ml-3 mt-2" style="font-size: 20px; font-weight: bold; color: #8DA291;">總計<span
+            style="padding-left: 175px;">NT$ {{alltotal}}</span></div>
+      </div>
+
+      <div class="deliver-form-total">購物清單</div>
+      <div class="deliver-form-totalBox" style="height: 338px;">
+        <div class="row mt-4"
+          *ngFor="let dessert of desserts| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+          <div class="col-2"></div>
+          <div class="col-4 deliver-form-img" style="background-image: url({{dessert.img}});"></div>
+          <div class="col-6">
+            <a style="font-size: 16px; color: #8DA291">{{dessert.NAME}} ({{dessert.order_quantity}})</a>
+            <br>
+            <a style="font-size: 20px; color: #8DA291;">NT$ {{dessert.price}}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

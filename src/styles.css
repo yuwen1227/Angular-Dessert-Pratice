@@ -1,1 +1,615 @@
-/* You can add global styles to this file, and also import other style files */
+.picture1 {
+  height: 496px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.selectBar {
+  height: 256px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.rectangleOver {
+  height: 256px;
+  width: auto;
+  background-color: #3f5d45;
+  opacity: 0.8;
+  color: white;
+  writing-mode: vertical-lr;
+  font-size: 30px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-right: solid white 1px;
+}
+
+#todayRecommend {
+  height: 256px;
+  width: auto;
+  background-color: #FFE180;
+  opacity: 0.8;
+  color: #3f5d45;
+  writing-mode: vertical-lr;
+  font-size: 30px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.rectangleOver:hover {
+  background-color: #FFE180;
+  color: #3f5d45;
+}
+
+.bg-cover {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.arr-selectBar {
+  padding-top: 407px;
+}
+
+.navBarBtn {
+  border: 0;
+  padding: 0;
+}
+
+.bg-space1 {
+  height: 270px;
+}
+
+.bg-space2 {
+  height: 105px;
+}
+
+.bg-space3 {
+  height: 525px;
+}
+
+.bg-card {
+  height: 420px;
+  background-color: #EAF0ED;
+}
+
+.arr-sm-img {
+  height: 250px;
+  width: 375px;
+  background-size: cover;
+  background-position: center;
+}
+
+.contentPicture {
+  height: 460px;
+  width: 460px;
+  background-position: center center;
+  background-size: cover;
+}
+
+.content-sm-text {
+  color: #8DA291;
+  font-size: 16px;
+  line-height: 35px;
+}
+
+.arr-content1 {
+  padding-top: 250px;
+}
+
+.arr-content2 {
+  padding-top: 85px;
+}
+
+.arr-content3 {
+  padding-top: 400px;
+}
+
+.contentText {
+  margin-top: 100px;
+  font-size: 16px;
+  height: 280px;
+  width: px;
+  writing-mode: vertical-rl;
+  color: #8DA291;
+  line-height: 50px;
+}
+
+.textSpace {
+  height: 100px;
+}
+
+.card-text {
+  margin: auto;
+  font-size: 20px;
+  color: #3F5D45;
+}
+
+.line-right {
+  height: 65px;
+  border: solid #EAF0ED 1px;
+}
+
+.card-price {
+  margin: auto;
+  font-size: 20px;
+  color: #3F5D45;
+}
+
+.card-footer-style {
+  background-color: #EAF0ED;
+}
+
+.card-footer-style:hover {
+  background-color: #d7e4da;
+}
+
+.card-footer-text {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3f5d45;
+}
+
+.card-img {
+  height: 305px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.img-mark {
+  margin-left: 20px;
+  width: 36px;
+  height: 106px;
+  background-color: #3F5D45;
+  color: white;
+  writing-mode: vertical-lr;
+  padding-left: 7px;
+}
+
+.img-mark-text {
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+label {
+  cursor: pointer;
+}
+
+.ui-checked-display {
+  display: none;
+}
+
+.ui-show {
+  display: inline-block;
+}
+
+.ui-hidden {
+  display: inline-block;
+}
+
+.bg-section {
+  margin-top: 60px;
+  height: 116px;
+  background-color: #3f5d45;
+}
+
+.form-text {
+  font-size: 24px;
+  color: white;
+}
+
+.input-box {
+  width: 360px;
+  height: 56px;
+  background-color: #EAF0ED;
+}
+
+.arr-form-content {
+  padding-top: 30px;
+}
+
+.form-icon {
+  position: absolute;
+  font-size: 24px;
+  color: #3f5d45;
+  left: 30px;
+  padding-top: 17px;
+}
+
+.submit-btn {
+  height: 56px;
+  width: 56px;
+  background-color: #FFE180;
+}
+
+.submit-icon {
+  position: absolute;
+  color: #3f5d45;
+  font-size: 24px;
+  left: 395px;
+  padding-top: 17px;
+}
+
+.footer-bg {
+  height: 341px;
+  background-color: #EAF0ED;
+}
+
+.footer-text-style {
+  color: #3f5d45;
+  list-style-type: none;
+}
+
+.bg-sm-section {
+  margin-top: 60px;
+  height: 186px;
+  background-color: #3f5d45;
+}
+
+.bg-space {
+  height: 70px;
+}
+
+.list-group-title {
+  background-color: #3f5d45;
+  height: 65px;
+  text-align: center;
+}
+
+.list-title-style {
+  color: white;
+  font-size: 24px;
+  padding-top: 16px;
+}
+
+.list-group-style {
+  height: 60px;
+  text-align: center;
+}
+
+.list-group-text {
+  font-size: 20px;
+  padding-top: 1px;
+  color: #3f5d45;
+  letter-spacing: 5px;
+}
+
+.list-group-style:hover {
+  background-color: #EAF0ED;
+}
+
+.list-group-item.active {
+  background-color: #EAF0ED;
+  border: none;
+}
+
+.form-bg {
+  height: 390px;
+  width: 380px;
+  background-color: #3f5d45;
+}
+
+.form-input-style {
+  margin: auto;
+  height: 56px;
+  width: 310px;
+  background-color: #EAF0ED;
+}
+
+.btn-style {
+  margin-top: 51px;
+  height: 65px;
+  width: 380px;
+  color: #3F5D45;
+  font-size: 24px;
+  background-color: #FFE180;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+}
+
+.btn-style:hover {
+  background-color: #fbdd78;
+}
+
+.arr-form-icon {
+  position: absolute;
+  top: 18px;
+  left: 25px;
+  color: #3f5d45;
+}
+
+.login-form-bg {
+  height: 360px;
+  width: 390px;
+  background-color: #EAF0ED;
+}
+
+.line-decoration {
+  width: 40px;
+  height: 0;
+  border-top: solid #8DA291 1px;
+  margin-top: 20px;
+}
+
+.formBox-text {
+  font-size: 24px;
+  color: #8DA291;
+}
+
+.login-box {
+  width: 330px;
+  height: 56px;
+  background-color: #FFFFFF;
+  text-align: center;
+  margin: auto;
+}
+
+.login-box:hover {
+  background-color: #d7e4da;
+}
+
+.form-sm-bg {
+  height: 300px;
+  background-color: #3f5d45;
+}
+
+.btn-sm-style {
+  margin-top: 21px;
+  height: 65px;
+  width: 483px;
+  color: #3F5D45;
+  font-size: 24px;
+  background-color: #FFE180;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+}
+
+.btn-sm-style:hover {
+  background-color: #fbdd78;
+}
+
+.form-title-bg {
+  padding-top: 18px;
+  height: 80px;
+  background-color: #3f5d45;
+}
+
+.login-option-bg {
+  height: 85px;
+  background-color: #EAF0ED;
+}
+
+.login-sm-box {
+  height: 56px;
+  width: 120px;
+  background-color: white;
+}
+
+.login-sm-box:hover {
+  background-color: #e0e4e1;
+}
+
+.cart-list-title {
+  height: 75px;
+  background-color: #EAF0ED;
+  color: #3F5D45;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 18px;
+}
+
+.card-list-img {
+  height: 110px;
+  width: 110px;
+  background-position: center;
+  background-size: cover;
+}
+
+.inputBox {
+  height: 48px;
+  width: 48px;
+  border: solid #EAF0ED 1px;
+  font-size: 20px;
+  color: #3f5d45;
+}
+
+.cart-list-icon {
+  padding-top: 33px;
+  color: #3f5d45;
+}
+
+.divide-line {
+  margin-top: 20px;
+  width: auto;
+  border: solid #EAF0ED 1px;
+}
+
+.cart-bill-box {
+  height: 193px;
+  background-color: #3f5d45;
+}
+
+.cart-bill-btn {
+  height: 56px;
+  background-color: #FFE180;
+}
+
+.cart-bill-btn:hover {
+  background-color: #fbdd78;
+}
+
+.cart-bill-title {
+  font-weight: bold;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.bill-divide-line {
+  width: 300px;
+  border-top: solid white 1px;
+  margin: auto;
+}
+
+.cart-bill-text {
+  color: #EAF0ED;
+}
+
+.cart-sm-picture {
+  height: 126px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-sm-priceBox {
+  width: 452px;
+  margin: auto;
+  border-top: solid #d7e4da 1px;
+  border-bottom: solid #d7e4da 1px;
+  font-size: 24px;
+  color: #3f5d45;
+  line-height: 44px;
+}
+
+.bill-title {
+  height: 65px;
+  text-align: center;
+  background-color: #EAF0ED;
+  color: #3f5d45;
+  font-size: 24px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.cart-bill-sm-text {
+  color: #3f5d45;
+}
+
+.deliver-form-bg {
+  height: 612px;
+  background-color: #3f5d45;
+}
+
+.deliver-form-text {
+  color: #EAF0ED;
+  font-size: 20px;
+}
+
+.deliver-form-textBox {
+  background-color: #EAF0ED;
+  height: 56px;
+}
+
+.deliver-form-btn {
+  margin-top: 27px;
+  background-color: #FFE180;
+  height: 65px;
+  width: 730px;
+  border-radius: 0;
+  font-size: 24px;
+  color: #3f5d45;
+}
+
+.deliver-form-btn:hover {
+  background-color: #fbdd78;
+}
+
+.step-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  border: solid #EAF0ED 1px;
+  background-color: #3f5d45;
+}
+
+.step-line {
+  position: absolute;
+  top: 10px;
+  left: 36px;
+  border-top: solid #EAF0ED 1px;
+  width: 70px;
+}
+
+.step-line2 {
+  position: absolute;
+  left: 130px;
+  border-top: solid #EAF0ED 1px;
+  width: 70px;
+}
+
+.step-circle-now {
+  width: 18px;
+  height: 18px;
+  border-radius: 20px;
+  border: solid #3f5d45 1px;
+  background-color: #EAF0ED;
+  position: absolute;
+  left: 1pc;
+  top: 1px;
+  z-index: 1;
+}
+
+.deliver-form-total {
+  height: 65px;
+  background-color: #EAF0ED;
+  text-align: center;
+  font-size: 24px;
+  color: #8DA291;
+  padding-top: 12px;
+}
+
+.deliver-form-totalBox {
+  height: 128px;
+  border: solid #EAF0ED 1px;
+}
+
+.deliver-form-img {
+  background-size: cover;
+  background-position: center;
+  height: 80px;
+}
+
+.checkout-success-img {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+}
+
+.checkout-success-btn {
+  height: 65px;
+  width: 300px;
+  background-color: #FFE180;
+  text-align: center;
+  font-size: 24px;
+  color: #3f5d45;
+  font-weight: bold;
+  padding-top: 12px;
+  margin: auto;
+  margin-top: 80px;
+}
+
+.checkout-success-btn:hover {
+  background-color: #fbdd78;
+}
+
+.receipt-box-style {
+  height: 60px;
+  border: solid #EAF0ED 1px;
+  background-color: #3f5d45;
+  color: #EAF0ED;
+  text-align: center;
+}
+
+.list-group-item.active {
+  color: #3f5d45;
+}

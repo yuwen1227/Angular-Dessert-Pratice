@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="deliver-form-bg">
+
+        <div class="row pt-4">
+          <div class="col-1"></div>
+          <div class="col-3">
+            <h2 style="color: #EAF0ED;">付款</h2>
+          </div>
+          <div class="col-3"></div>
+
+          <div class="col-5 mt-2 d-md-none" style="position: absolute; left:200px;">
+            <span class="material-icons" style="position: absolute; color:#EAF0ED; right:164px; top:1px;">
+              check_circle
+            </span>
+            <div class="step-circle-now" style="left: 106px; top:4px;"></div>
+            <div class="step-line" style="top:12px;"></div>
+            <div class="step-line" style="top:12px; left: 120px;"></div>
+            <div class="step-circle" style="position: absolute; left: 105px; top:3px"></div>
+            <div class="step-circle" style="position: absolute; left: 186px; top:3px"></div>
+          </div>
+
+          <div class="col-5 mt-2 d-none d-md-block">
+            <span class="material-icons" style="position: absolute; color:#EAF0ED; right:280px; bottom:16px;">
+              check_circle
+            </span>
+            <div class="step-circle-now" style="left: 101px;"></div>
+            <div class="step-circle"></div>
+            <div class="step-line"></div>
+            <div class="step-circle" style="position: absolute; left: 100px; bottom:18px"></div>
+            <div class="step-line" style="left: 120px;"></div>
+            <div class="step-circle" style="position: absolute; left: 185px; bottom:18px"></div>
+          </div>
+
+        </div>
+
+        <form>
+          <div class="form-row mt-2">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <div class="form-group">
+                <label for="creditcard" class="deliver-form-text">信用卡卡號</label>
+                <input type="text" class="form-control deliver-form-textBox" id="creditcard"
+                  style="color: #8DA291; font-size: 20px;" placeholder="9012-3456-7890-1234" [(ngModel)]="creditcard" [ngModelOptions]="{standalone: true}"(input)="submitpay()">
+                <span class="material-icons d-none d-md-block"
+                  style="position: absolute; left: 570px; bottom: 30px; color: #3F5D45;">
+                  credit_card
+                </span>
+                <span class="material-icons d-md-none"
+                  style="position: absolute; left:340px; bottom: 30px; color: #3F5D45;">
+                  credit_card
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row mt-4">
+            <div class="col-1"></div>
+            <div class="form-group col-5">
+              <label for="lastname" class="deliver-form-text">持卡人姓名</label>
+              <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
+                id="lastname" placeholder="王" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}" (input)="submitpay()">
+            </div>
+            <div class="form-group col-5" style="margin-top: 14px;">
+              <label for="firstname" class="deliver-form-text"></label>
+              <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
+                id="firstname" placeholder="小明" [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}" (input)="submitpay()">
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="col-1"></div>
+            <div class="form-group col-5">
+              <label for="city" class="deliver-form-text">有效期限</label>
+              <select id="city" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;">
+                <option selected>月</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-5" style="padding-top: 14px;">
+              <label for="district"></label>
+              <select id="city" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;">
+                <option selected>年</option>
+                <option>...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-1"></div>
+            <div class="form-group col-5">
+              <label for="last3" class="deliver-form-text">背後末三碼</label>
+              <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
+                id="last3" placeholder="123" [(ngModel)]="last3" [ngModelOptions]="{standalone: true}" (input)="submitpay()">
+            </div>
+          </div>
+
+          <a routerLink='/receipt' style="text-decoration: none;">
+            <div type="submit" class="btn deliver-form-btn d-none d-md-block" (click)="submitpay()">下一步</div>
+          </a>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="col-4 d-none d-md-block">
+      <div class="deliver-form-total">訂單摘要</div>
+      <div class="deliver-form-totalBox mb-3">
+        <div class="cart-bill-text ml-4 mt-3" style="color: #8DA291;">小計<span style="padding-left: 200px;">NT$
+            {{subtotal}}</span></div>
+        <div class="cart-bill-text ml-4 mt-2" style="color: #8DA291;">運費<span style="padding-left: 212px;">NT$
+            {{fee}}</span></div>
+        <div class="cart-bill-text ml-3 mt-2" style="font-size: 20px; font-weight: bold; color: #8DA291;">總計<span
+            style="padding-left: 175px;">NT$ {{alltotal}}</span></div>
+      </div>
+
+      <div class="deliver-form-total">購物清單</div>
+      <div class="deliver-form-totalBox" style="height: 338px;">
+        <div class="row mt-4" *ngFor="let dessert of desserts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+          <div class="col-2"></div>
+          <div class="col-4 deliver-form-img" style="background-image: url({{dessert.img}});"></div>
+          <div class="col-6">
+            <a style="font-size: 16px; color: #8DA291">{{dessert.NAME}} ({{dessert.order_quantity}})</a>
+            <br>
+            <a style="font-size: 20px; color: #8DA291;">NT$ {{dessert.price}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

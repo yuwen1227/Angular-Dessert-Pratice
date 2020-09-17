@@ -1,0 +1,57 @@
+<div class="mylogin">
+  <div class="container d-none d-md-block">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-4">
+        <form method="POST">
+          <div class="form-group form-bg">
+            <h2 style="text-align: center; color: white; padding-top: 40px; padding-bottom: 20px;">會員登入</h2>
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-8">
+                <span class="material-icons arr-form-icon" style="font-size:24px;">
+                  person
+                </span>
+                <input type="text" class="form-control form-input-style mb-3" style="padding-left: 40px;"
+                  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="電子信箱/手機號碼" [(ngModel)]="userEmail" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-8">
+                <span class="material-icons arr-form-icon" style="font-size:24px;">
+                  vpn_key
+                </span>
+                <input type="password" class="form-control form-input-style" style="padding-left: 40px;"
+                  id="exampleInputPassword1" placeholder="請輸入使用者密碼" [(ngModel)]="userPw" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input ml-3" id="exampleCheck1">
+              <label class="form-check-label" style="color: white; padding-left: 35px;" for="exampleCheck1">記住我</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-style" (click)="UserLogin()">登入帳號</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-5">
+        <div class="login-form-bg mt-3 d-none d-md-block">
+          <div class="row d-flex justify-content-center" style="padding-top: 40px;">
+            <div class="line-decoration mr-2"></div>
+            <span class="formBox-text">連結社群帳號</span>
+            <div class="line-decoration ml-2"></div>
+          </div>
+          <div class="login-box mt-4"><img src="assets/img/ic-facebook-logotype.png" style="padding-top: 15px;"></div>
+          <div class="login-box mt-3"><img src="assets/img/ic-google.png" style="padding-top: 15px;"></div>
+          <div class="login-box mt-3"><img src="assets/img/ic-yahoo.png" style="padding-top: 15px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

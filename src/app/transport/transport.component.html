@@ -1,0 +1,121 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="deliver-form-bg">
+
+        <div class="row pt-4">
+          <div class="col-1"></div>
+          <div class="col-3">
+            <h2 style="color: #EAF0ED;">運送</h2>
+          </div>
+          <div class="col-3"></div>
+
+          <div class="col-5 mt-2 d-md-none" style="position: absolute; left:200px;">
+            <div class="step-circle-now"></div>
+            <div class="step-circle"></div>
+            <div class="step-line"></div>
+            <div class="step-circle" style="position: absolute; left: 100px;bottom: 1px;"></div>
+            <div class="step-line" style="left: 120px;"></div>
+            <div class="step-circle" style="position: absolute; left: 185px; bottom:1px"></div>
+          </div>
+
+          <div class="col-5 mt-2 d-none d-md-block">
+            <div class="step-circle-now"></div>
+            <div class="step-circle"></div>
+            <div class="step-line"></div>
+            <div class="step-circle" style="position: absolute; left: 100px; bottom:18px"></div>
+            <div class="step-line" style="left: 120px;"></div>
+            <div class="step-circle" style="position: absolute; left: 185px; bottom:18px"></div>
+          </div>
+
+        </div>
+
+        <form method="POST" #form="ngForm">
+          <div class="form-row mt-4">
+            <div class="col-1"></div>
+            <div class="form-group col-5">
+              <label for="lastname" class="deliver-form-text">姓氏</label>
+              <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
+                id="lastname" placeholder="王" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}"
+                (input)="submitTransport()">
+              </div>
+            <div class="form-group col-5">
+              <label for="firstname" class="deliver-form-text">名字</label>
+              <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
+                id="firstname" placeholder="小明" [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}"
+                (input)="submitTransport()">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <div class="form-group">
+                <label for="telephone" class="deliver-form-text">電話</label>
+                <input type="text" class="form-control deliver-form-textBox" id="telephone"
+                  style="color: #8DA291; font-size: 20px;" placeholder="0912-345-678" [(ngModel)]="telephone"
+                  [ngModelOptions]="{standalone: true}" (input)="submitTransport()">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-1"></div>
+            <div class="form-group col-5">
+              <label for="city" class="deliver-form-text">地址</label>
+              <select id="city" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;">
+                <option selected>高雄市</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-5" style="padding-top: 14px;">
+              <label for="district"></label>
+              <select id="city" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;">
+                <option selected>新興區</option>
+                <option>...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-1"></div>
+            <div class="form-group col-10">
+              <label for="address"></label>
+              <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
+                id="address" placeholder="幸福路520號">
+            </div>
+          </div>
+          <a routerLink='/pay' style="text-decoration: none;">
+            <div type="submit" class="btn deliver-form-btn d-none d-md-block" (click)="submitTransport()">下一步</div>
+          </a>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-4 d-none d-md-block">
+      <div class="deliver-form-total">訂單摘要</div>
+      <div class="deliver-form-totalBox mb-3">
+        <div class="cart-bill-text ml-4 mt-3" style="color: #8DA291;">小計<span style="padding-left: 200px;">NT$
+            {{subtotal}}</span></div>
+        <div class="cart-bill-text ml-4 mt-2" style="color: #8DA291;">運費<span style="padding-left: 212px;">NT$
+            {{fee}}</span></div>
+        <div class="cart-bill-text ml-3 mt-2" style="font-size: 20px; font-weight: bold; color: #8DA291;">總計<span
+            style="padding-left: 175px;">NT$ {{alltotal}}</span></div>
+      </div>
+
+      <div class="deliver-form-total">購物清單</div>
+      <div class="deliver-form-totalBox" style="height: 338px;">
+        <div class="row mt-4" *ngFor="let dessert of desserts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+          <div class="col-2"></div>
+          <div class="col-4 deliver-form-img" style="background-image: url({{dessert.img}});"></div>
+          <div class="col-6">
+            <a style="font-size: 16px; color: #8DA291">{{dessert.name}} ({{dessert.order_quantity}})</a>
+            <br>
+            <a style="font-size: 20px; color: #8DA291;">NT$ {{dessert.price}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

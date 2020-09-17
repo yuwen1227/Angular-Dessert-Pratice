@@ -1,0 +1,59 @@
+<div class="container d-none d-md-block">
+  <div class="row">
+    <div class="col-8">
+      <div class="cart-list-title" >您的購物車</div>
+      <div class="cart-card" *ngFor="let dessert of desserts">
+        <div class="row mt-5">
+          <div class="col-2">
+            <div class="card-list-img" style="background-image: url({{dessert.img}});"></div>
+          </div>
+          <div class="col-3 mt-4">
+            <a style="font-size: 20px; color: #3F5D45;">{{dessert.NAME}}</a>
+            <br>
+            <a style="font-size: 16px; color:#3F5D45">NT${{dessert.price}}</a>
+          </div>
+          <div class="col-1"></div>
+          <div class="col-3">
+            <div class="btn-group btn-group-toggle mt-4" data-toggle="buttons">
+              <label class="btn inputBox active">
+                <input type="radio" id="minus" autocomplete="off" (click)="changeQuantity(dessert,-1)">-
+              </label>
+
+              <input class="btn inputBox" type="text" id="add" autocomplete="off" [(ngModel)]="dessert.order_quantity">
+
+              <label class="btn inputBox">
+                <input type="radio" autocomplete="off" (click)="changeQuantity(dessert,1)">+
+              </label>
+            </div>
+          </div>
+          <div class="col-2" style="padding-top: 30px;">
+            <a style="font-size: 20px; color: #3F5D45;">NT${{dessert.total}}</a>
+          </div>
+          <div class="col-1">
+            <span class="material-icons cart-list-icon" type="button" (click)="deleteCart(dessert)">
+              delete
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="divide-line"></div>
+
+    </div>
+    <div class="col-md-4">
+      <div class="cart-bill-box">
+        <div class="cart-bill-title">訂單摘要</div>
+        <div class="bill-divide-line"></div>
+        <div class="cart-bill-text ml-4 mt-3">小計<span style="padding-left: 200px;">NT$ {{subtotal}}</span></div>
+        <div class="cart-bill-text ml-4 mt-2">運費<span style="padding-left: 212px;">NT$ {{fee}}</span></div>
+        <div class="cart-bill-text ml-3 mt-2" style="font-size: 20px; font-weight: bold;">總計<span
+            style="padding-left: 175px;">NT$ {{alltotal}}</span></div>
+      </div>
+      <a routerLink='/transport' style="text-decoration: none;">
+        <div class="cart-bill-btn"
+          style="text-align: center; color: #3F5D45; font-size: 24px; font-weight: bold; padding-top: 8px;">
+          結帳
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
