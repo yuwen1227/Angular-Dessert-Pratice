@@ -31,6 +31,8 @@ export class DesserthomeComponent implements OnInit {
       this.desserts = res;
       console.log(this.desserts);
       this.queryTypeAndNums(typeId);
+    }, error => {
+      alert('error:' + error);
     });
   }
   // Return 所有類別細節(名稱、狀態、數量、id)
@@ -49,6 +51,8 @@ export class DesserthomeComponent implements OnInit {
         this.typename = res[2].chinese;
         console.log(this.typename);
       }
+    }, error => {
+      alert('錯誤!請找專業人員處理');
     });
   }
   // 網站放到購物車
@@ -64,8 +68,15 @@ export class DesserthomeComponent implements OnInit {
       this.http.post(url, body).subscribe(res => {
         console.log(res);
         alert(`${this.productname}\n成功加入購物車`);
+      }, error => {
+        console.log(error);
+        if (error.status === 400) {
+          alert('400:BadRequest');
+        } else {
+          alert('錯誤!請找專業人員處理');
+        }
       });
-    }else{
+    } else {
       alert('尚未登入!\n無法購物車');
     }
   }

@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit {
   userEmail: number;
   productName: number;
   quantity: number;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.queryByTypeId(this.typeId);
-    this.changeQuantity4select(this.userEmail, this.productName, this.quantity);
   }
 
   // return 該類產品
@@ -26,9 +26,18 @@ export class HomeComponent implements OnInit {
     const url = 'http://10.1.41.66:8080/queryByTypeId';
     const body = new HttpParams()
       .set('typeId', typeId);
-    this.http.post(url, body).subscribe(res => {
-      this.typeId = res[0];
-    });
+    this.http.post(url, body).subscribe(
+      res => {
+        this.typeId = res[0];
+      },
+      error => {
+        console.log(error);
+        if (error.status === 400) {
+          alert('400 : Bad Request');
+        }else{
+          alert('錯誤!請找專業人員處理');
+        }
+      });
   }
   // 在網頁加入購物車
   changeQuantity4select(userEmail, productName, quantity): void {
@@ -37,8 +46,17 @@ export class HomeComponent implements OnInit {
       .set('userEmail', userEmail)
       .set('productName', productName)
       .set('quantity', quantity);
-    this.http.post(url, body).subscribe(res => {
-      console.log(res);
-    });
+    this.http.post(url, body).subscribe(
+      res => {
+        console.log(res);
+      },
+      error => {
+        console.log(error);
+        if (error.status === 400) {
+          alert('400 : Bad Request');
+        }else{
+          alert('錯誤!請找專業人員處理');
+        }
+      });
   }
 }

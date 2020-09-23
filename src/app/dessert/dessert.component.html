@@ -5,7 +5,6 @@
 </div>
 
 <div class="bg-space"></div>
-
 <div class="container">
   <div class="row">
     <div class="col-md-4 mb-4">
@@ -18,28 +17,28 @@
           <div class="list-group-text">所有甜點({{dessertinfo.numberforall}})</div>
         </button>
         <a class="list-group-item list-group-item-action list-group-style" id="list-today-list" data-toggle="list"
-           role="tab" aria-controls="profile" (click)="dessertinfo.queryByTypeId('1')">
+           role="tab" aria-controls="profile" (click)="typeId = kind.Today">
           <div class="list-group-text">本日精選({{type1}})</div>
         </a>
         <a class="list-group-item list-group-item-action list-group-style" id="list-recommend-list" data-toggle="list"
-        (click)="dessertinfo.queryByTypeId('2')" role="tab" aria-controls="messages">
+        (click)="typeId = kind.Popular" role="tab" aria-controls="messages">
           <div class="list-group-text">人氣推薦({{type2}})</div>
 
         </a>
         <a class="list-group-item list-group-item-action list-group-style" id="list-new-list" data-toggle="list"
-        (click)="dessertinfo.queryByTypeId('3')" role="tab" aria-controls="settings">
+        (click)="typeId = kind.New" role="tab" aria-controls="settings">
           <div class="list-group-text">新品上市({{type3}})</div>
 
         </a>
         <a class="list-group-item list-group-item-action list-group-style" id="list-limit-list" data-toggle="list"
-        (click)="dessertinfo.queryByTypeId('4')" role="tab" aria-controls="settings">
+        (click)="typeId = kind.OutOfPrint" role="tab" aria-controls="settings">
           <div class="list-group-text">絕版品</div>
         </a>
       </div>
     </div>
     <div class="col-md-8">
       <div class="tab-content" id="nav-tabContent">
-        <app-dessertinfo #dessertinfo></app-dessertinfo>
+        <app-dessertinfo #dessertinfo [typeId]="typeId"></app-dessertinfo>
       </div>
     </div>
   </div>

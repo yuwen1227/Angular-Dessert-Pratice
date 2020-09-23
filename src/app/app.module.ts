@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DessertinfoComponent } from './dessertinfo/dessertinfo.component';
 import { DesserthomeComponent } from './desserthome/desserthome.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { DesserthomeComponent } from './desserthome/desserthome.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

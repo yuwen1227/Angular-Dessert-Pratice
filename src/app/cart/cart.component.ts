@@ -42,9 +42,11 @@ export class CartComponent implements OnInit {
 
       for (let a = 0; a < this.desserts.length; a++) {
         this.desserts[a].total = this.desserts[a].price * this.desserts[a].order_quantity;
+        console.log(this.desserts[a]);
+        console.log(this.desserts[a].total);
         this.subtotal = this.desserts[a].total + this.subtotal;
-        this.alltotal = this.subtotal + this.fee;
       }
+      this.alltotal = this.subtotal + this.fee;
     });
   }
 
@@ -66,6 +68,8 @@ export class CartComponent implements OnInit {
     this.http.post<Desserts[]>(url, body).subscribe(res => {
       console.log(res);
       this.checkCart();
+    }, error => {
+      alert('error:' + error);
     });
   }
 
@@ -78,6 +82,8 @@ export class CartComponent implements OnInit {
     const url = `/api/cart/${userEmail}/${productName}`;
     this.http.delete(url).subscribe(res => {
       console.log(res);
+    }, error => {
+      alert('error:' + error);
     });
     this.checkCart();
   }

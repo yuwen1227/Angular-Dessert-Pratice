@@ -35,14 +35,23 @@
 
         </div>
 
-        <form>
+        <form [formGroup]="payForm" #formDir="ngForm">
           <div class="form-row mt-2">
             <div class="col-1"></div>
             <div class="col-10">
               <div class="form-group">
                 <label for="creditcard" class="deliver-form-text">信用卡卡號</label>
-                <input type="text" class="form-control deliver-form-textBox" id="creditcard"
-                  style="color: #8DA291; font-size: 20px;" placeholder="9012-3456-7890-1234" [(ngModel)]="creditcard" [ngModelOptions]="{standalone: true}"(input)="submitpay()">
+                <input type="text" formControlName="creditcard" class="form-control deliver-form-textBox"
+                  id="creditcard" style="color: #8DA291; font-size: 20px;" placeholder="9012-3456-7890-1234"
+                  [(ngModel)]="creditcard" required pattern="^[0-9\-]*$" (input)="submitpay()">
+                <div *ngIf="credit.invalid && (credit.dirty || credit.touched)" class="alert alert-danger">
+                  <div *ngIf="credit.errors.required">
+                    信用卡卡號為必填欄位
+                  </div>
+                  <div *ngIf="credit.errors.pattern">
+                    只可輸入數字
+                  </div>
+                </div>
                 <span class="material-icons d-none d-md-block"
                   style="position: absolute; left: 570px; bottom: 30px; color: #3F5D45;">
                   credit_card
@@ -60,12 +69,30 @@
             <div class="form-group col-5">
               <label for="lastname" class="deliver-form-text">持卡人姓名</label>
               <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
-                id="lastname" placeholder="王" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}" (input)="submitpay()">
+                id="lastname" placeholder="王" [(ngModel)]="lastname" formControlName="lastname" required
+                pattern="^[^0-9]*$" (input)="submitpay()">
+              <div *ngIf="namel.invalid && (namel.dirty || namel.touched)" class="alert alert-danger">
+                <div *ngIf="namel.errors.required">
+                  姓氏為必填欄位
+                </div>
+                <div *ngIf="namel.errors.pattern">
+                  不可輸入數字
+                </div>
+              </div>
             </div>
             <div class="form-group col-5" style="margin-top: 14px;">
               <label for="firstname" class="deliver-form-text"></label>
               <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
-                id="firstname" placeholder="小明" [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}" (input)="submitpay()">
+                id="firstname" placeholder="小明" [(ngModel)]="firstname" formControlName="firstname" required
+                pattern="^[^0-9]*$" (input)="submitpay()">
+              <div *ngIf="namef.invalid && (namef.dirty || namef.touched)" class="alert alert-danger">
+                <div *ngIf="namef.errors.required">
+                  名字為必填欄位
+                </div>
+                <div *ngIf="namef.errors.pattern">
+                  不可輸入數字
+                </div>
+              </div>
             </div>
           </div>
 
@@ -93,12 +120,21 @@
             <div class="form-group col-5">
               <label for="last3" class="deliver-form-text">背後末三碼</label>
               <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
-                id="last3" placeholder="123" [(ngModel)]="last3" [ngModelOptions]="{standalone: true}" (input)="submitpay()">
+                id="last3" placeholder="123" [(ngModel)]="last3" formControlName="last3" required pattern="^[0-9]*$"
+                (input)="submitpay()">
+              <div *ngIf="last.invalid && (last.dirty || last.touched)" class="alert alert-danger">
+                <div *ngIf="last.errors.required">
+                  背後末三碼為必填欄位
+                </div>
+                <div *ngIf="last.errors.pattern">
+                  只可輸入數字
+                </div>
+              </div>
             </div>
           </div>
 
           <a routerLink='/receipt' style="text-decoration: none;">
-            <div type="submit" class="btn deliver-form-btn d-none d-md-block" (click)="submitpay()">下一步</div>
+            <button type="submit" class="btn deliver-form-btn d-none d-md-block" [disabled]="!payForm.valid" (click)="submitpay()">下一步</button>
           </a>
 
         </form>
@@ -118,7 +154,8 @@
 
       <div class="deliver-form-total">購物清單</div>
       <div class="deliver-form-totalBox" style="height: 338px;">
-        <div class="row mt-4" *ngFor="let dessert of desserts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <div class="row mt-4"
+          *ngFor="let dessert of desserts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <div class="col-2"></div>
           <div class="col-4 deliver-form-img" style="background-image: url({{dessert.img}});"></div>
           <div class="col-6">

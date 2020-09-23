@@ -30,23 +30,36 @@
           </div>
 
         </div>
-
-        <form method="POST" #form="ngForm">
+        <form [formGroup]="transportForm" #formDir="ngForm">
           <div class="form-row mt-4">
             <div class="col-1"></div>
             <div class="form-group col-5">
               <label for="lastname" class="deliver-form-text">姓氏</label>
-              <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
-                id="lastname" placeholder="王" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}"
-                (input)="submitTransport()">
+              <input id="lastname" formControlName="lastname" class="form-control deliver-form-textBox"
+                style="color: #8DA291; font-size: 20px;" [(ngModel)]="lastname" placeholder="王"
+                (input)="submitTransport()" type="text" required pattern="^[^0-9]*$">
+              <div *ngIf="namel.invalid && (namel.dirty || namel.touched)" class="alert alert-danger">
+                <div *ngIf="namel.errors.required">
+                  姓氏為必填欄位
+                </div>
+                <div *ngIf="namel.errors.pattern">
+                  不可輸入數字
+                </div>
               </div>
+            </div>
             <div class="form-group col-5">
               <label for="firstname" class="deliver-form-text">名字</label>
-              <input type="text" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;"
-                id="firstname" placeholder="小明" [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}"
-                (input)="submitTransport()">
+              <input type="text" formControlName="firstname" class="form-control deliver-form-textBox"
+                style="color: #8DA291; font-size: 20px;" id="firstname" placeholder="小明" [(ngModel)]="firstname"
+                (input)="submitTransport()" required pattern="^[^0-9]*$">
+              <div *ngIf="namef.invalid && (namef.dirty || namef.touched)" class="alert alert-danger">
+                <div *ngIf="namef.errors.required">
+                  名字為必填欄位
+                </div>
+              </div>
             </div>
           </div>
+
 
           <div class="form-row">
             <div class="col-1"></div>
@@ -54,8 +67,16 @@
               <div class="form-group">
                 <label for="telephone" class="deliver-form-text">電話</label>
                 <input type="text" class="form-control deliver-form-textBox" id="telephone"
-                  style="color: #8DA291; font-size: 20px;" placeholder="0912-345-678" [(ngModel)]="telephone"
-                  [ngModelOptions]="{standalone: true}" (input)="submitTransport()">
+                  style="color: #8DA291; font-size: 20px;" formControlName="telephone" [(ngModel)]="telephone"
+                  (input)="submitTransport()" required pattern="^[0-9\-]*$" >
+                  <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                    <div *ngIf="phone.errors.required">
+                      電話為必填欄位
+                    </div>
+                    <div *ngIf="phone.errors.pattern">
+                      只可輸入數字
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
@@ -71,7 +92,7 @@
             </div>
             <div class="form-group col-5" style="padding-top: 14px;">
               <label for="district"></label>
-              <select id="city" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;">
+              <select id="district" class="form-control deliver-form-textBox" style="color: #8DA291; font-size: 20px;">
                 <option selected>新興區</option>
                 <option>...</option>
               </select>
@@ -86,8 +107,12 @@
                 id="address" placeholder="幸福路520號">
             </div>
           </div>
+
+
+
           <a routerLink='/pay' style="text-decoration: none;">
-            <div type="submit" class="btn deliver-form-btn d-none d-md-block" (click)="submitTransport()">下一步</div>
+            <button type="submit" class="btn deliver-form-btn d-none d-md-block" [disabled]="!transportForm.valid"
+              (click)="submitTransport()">下一步</button>
           </a>
         </form>
       </div>
@@ -106,7 +131,8 @@
 
       <div class="deliver-form-total">購物清單</div>
       <div class="deliver-form-totalBox" style="height: 338px;">
-        <div class="row mt-4" *ngFor="let dessert of desserts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <div class="row mt-4"
+          *ngFor="let dessert of desserts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <div class="col-2"></div>
           <div class="col-4 deliver-form-img" style="background-image: url({{dessert.img}});"></div>
           <div class="col-6">

@@ -3,6 +3,7 @@ import { LoginService } from './../login.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-transport',
@@ -19,23 +20,40 @@ export class TransportComponent implements OnInit {
   alltotal = 0;
   page = 1; // 現在在第一頁
   pageSize = 3; // 一頁只能有3筆
+
+  // 表單
+  transportForm = new FormGroup({
+    firstname: new FormControl('', [Validators.required, Validators.pattern('^[^0-9]*$')]),
+    lastname: new FormControl('', [Validators.required, Validators.pattern('^[^0-9]*$')]),
+    telephone: new FormControl('', [Validators.required, Validators.pattern('^[0-9\-]*$')]),
+  });
+  get namel() {
+    return this.transportForm.get('lastname');
+  }
+  get namef() {
+    return this.transportForm.get('firstname');
+  }
+  get phone() {
+    return this.transportForm.get('telephone');
+  }
+
   constructor(private router: Router, private loginService: LoginService, private http: HttpClient) { }
   submitTransport(): void {
-    if (this.lastname.match(/^[0-9]*$/) && this.lastname.length !== 0) {
-      console.log('姓不可輸入數字');
-      alert('姓不可輸入數字');
-      (document.getElementById('lastname') as HTMLInputElement).value = '';
-      this.lastname = '';
-      console.log(this.lastname);
-    }
-    if (this.firstname.match(/^[0-9]*$/) && this.firstname.length !== 0) {
-      console.log('名不可輸入數字');
-      alert('名不可輸入數字');
-      (document.getElementById('firstname') as HTMLInputElement).value = '';
-      this.firstname = '';
-      console.log(this.firstname);
+    // if (this.lastname.match(/^[0-9]*$/) && this.lastname.length !== 0) {
+    //   console.log('姓不可輸入數字');
+    //   alert('姓不可輸入數字');
+    //   (document.getElementById('lastname') as HTMLInputElement).value = '';
+    //   this.lastname = '';
+    //   console.log(this.lastname);
+    // }
+    // if (this.firstname.match(/^[0-9]*$/) && this.firstname.length !== 0) {
+    //   console.log('名不可輸入數字');
+    //   alert('名不可輸入數字');
+    //   (document.getElementById('firstname') as HTMLInputElement).value = '';
+    //   this.firstname = '';
+    //   console.log(this.firstname);
 
-    }
+    // }
     if (this.telephone.length === 4) {
       this.telephone = this.telephone + '-';
       console.log(this.telephone);
